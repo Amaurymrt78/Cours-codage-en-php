@@ -37,3 +37,20 @@ class GameCharacter extends Character {
         echo "</div>";
     }
 }
+// src/Controller / GameController.php
+namespace App\Controller;
+use Symfony\Component\HttpFoundation\Response;
+// ...
+
+class GameController extends AbstractController
+{
+    public function number(): Response
+    {
+        $number = random_int(0, 100);
+
+        return $this->render('game/number.html.twig', [
+            'number' => $number,
+            ]);
+        }
+    }
+}
